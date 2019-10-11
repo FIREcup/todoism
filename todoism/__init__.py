@@ -7,7 +7,7 @@ from flask_login import current_user
 from .blueprints.auth import auth_bp
 from .blueprints.home import home_bp
 from .blueprints.todo import todo_bp
-from .extensions import db, login_manager, csrf
+from .extensions import db, login_manager, csrf, babel
 from .models import User, Item
 from .settings import config
 
@@ -31,6 +31,7 @@ def register_extensions(app):
     db.init_app(app)
     login_manager.init_app(app)
     csrf.init_app(app)
+    babel.init_app(app)
 
 
 def register_blueprints(app):
