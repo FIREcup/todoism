@@ -53,3 +53,14 @@ def edit_item(item_id):
     item.body = data['body']
     db.session.commit()
     return jsonify(message=_('Item updated.'))
+
+
+@todo_bp.route('/item/<int:item_id>/toggle', methods=['POST'])
+@login_required
+def toggle_item(item_id):
+    item = Item.query.get_or_404(item_id)
+    if current_user != item.author:
+        return jsonify(message=_('Permission denied.')), 403
+
+    item.done = not item.done
+
