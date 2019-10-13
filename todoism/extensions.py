@@ -1,7 +1,7 @@
 from flask_login import LoginManager, current_user
 from flask_sqlalchemy import SQLAlchemy
 from flask_wtf.csrf import CSRFProtect
-from flask_babel import Babel
+from flask_babel import Babel, lazy_gettext as _l
 from flask import request, current_app
 
 db = SQLAlchemy()
@@ -10,6 +10,7 @@ babel = Babel()
 
 login_manager = LoginManager()
 login_manager.login_view = 'auth.login'
+login_manager.login_message = _l('Please login to access this page.')
 
 
 @login_manager.user_loader

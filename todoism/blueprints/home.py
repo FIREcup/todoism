@@ -1,5 +1,6 @@
 from flask import render_template, Blueprint, current_app, jsonify, make_response
 from flask_login import current_user
+from flask_babel import _
 
 from ..extensions import db
 
@@ -18,6 +19,7 @@ def intro():
 
 @home_bp.route('/set-locale/<locale>')
 def set_locale(locale):
+    print('ddddddddddddddddd')
     if locale not in current_app.config['TODOISM_LOCALES']:
         return jsonify(message=_('Invalid locale.')), 404
 

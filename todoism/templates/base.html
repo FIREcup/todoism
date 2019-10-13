@@ -15,7 +15,7 @@
                     </a>
                 </li>
             {% else %}
-                <li><a class='waves-effect waves-light btn red' href='#login'>Login</a></li>
+            <li><a class='waves-effect waves-light btn red' href='#login'>{{ _('Login') }}</a></li>
             {% endif %}
             <li>
                 <a class="waves-effect waves-light dropdown-trigger" id="locale-dropdown-btn"
@@ -34,9 +34,9 @@
                href='#app'>{{ current_user.username }}</a>
         </li>
         <li><a class='waves-effect waves-light btn grey sidenav-close' id='logout-btn'
-               data-href="{{ url_for('auth.logout') }}">Logout</a></li>
+               data-href="{{ url_for('auth.logout') }}">{{ _('Logout') }}</a></li>
     {% else %}
-        <li><a class='waves-effect waves-light btn red sidenav-close' href='#login'>Login</a></li>
+        <li><a class='waves-effect waves-light btn red sidenav-close' href='#login'>{{ _('Login') }}</a></li>
     {% endif %}
 </ul>
 

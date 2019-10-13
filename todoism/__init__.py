@@ -2,6 +2,7 @@ import os
 
 import click
 from flask import Flask, render_template
+from flask_babel import _
 from flask_login import current_user
 
 from .blueprints.auth import auth_bp
@@ -80,3 +81,33 @@ def register_commands(app):
         db.create_all()
         click.echo('Initialized databases.')
 
+    @app.cli.group()
+    def translate():
+        """Translation and loclization commands."""
+        pass
+
+    @translate.command()
+    @click.argument('locale')
+    def init(locale):
+        """Initialize a new language."""
+        if os.system('pybabel extract -F babel.cfg -k _l -o messages.pot .'):
+            raise RuntimeError('extract command failed.')
+        if os.system(
+                'pybabel init -i messages.pot -d todoism/translations -l ' + locale):
+            raise RuntimeError('init command failed')
+        os.remove('messages.pot')
+
+    @translate.command()
+    def update():
+        """Update all languages."""
+        if os.system('pybabel extract -F babel.cfg -k _l -o messages.pot .'):
+            raise RuntimeError('extract command failed')
+        if os.system('pybabel update -i messages.pot -d todoism/translations'):
+            raise RuntimeError('update command failed')
+        os.remove('messages.pot')
+
+    @translate.command()
+    def compile():
+        """Compile all languages."""
+        if os.system('pybabel compile -d todoism/translations'):
+            raise RuntimeError('compile command failed')

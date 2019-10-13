@@ -1,0 +1,88 @@
+# Translations template for PROJECT.
+# Copyright (C) 2019 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2019-10-12 07:46+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: todoism/extensions.py:13
+msgid "Please login to access this page."
+msgstr ""
+
+#: todoism/blueprints/home.py:23
+msgid "Invalid locale."
+msgstr ""
+
+#: todoism/blueprints/home.py:25
+msgid "Setting updated."
+msgstr ""
+
+#: todoism/templates/_app.html:6
+msgid "What needs to by done?"
+msgstr ""
+
+#: todoism/templates/_app.html:13
+msgid "All"
+msgstr ""
+
+#: todoism/templates/_app.html:17
+msgid "Active"
+msgstr ""
+
+#: todoism/templates/_app.html:21
+msgid "Done"
+msgstr ""
+
+#: todoism/templates/_intro.html:6
+msgid "We are todoist, we use todoism."
+msgstr ""
+
+#: todoism/templates/_intro.html:18
+msgid "Get Started"
+msgstr ""
+
+#: todoism/templates/_login.html:5
+msgid "Login on Todoism"
+msgstr ""
+
+#: todoism/templates/_login.html:13
+msgid "Get a test account"
+msgstr ""
+
+#: todoism/templates/_login.html:14 todoism/templates/base.html:18
+#: todoism/templates/base.html:39
+msgid "Login"
+msgstr ""
+
+#: todoism/templates/_login.html:16
+msgid "Toggle Password"
+msgstr ""
+
+#: todoism/templates/base.html:37
+msgid "Logout"
+msgstr ""
+
+#: todoism/templates/index.html:27
+msgid "Oops, something was wrong!"
+msgstr ""
+
+#: todoism/templates/index.html:28
+msgid "Your todo was empty!"
+msgstr ""
+
+#: todoism/templates/index.html:29
+msgid "Empty username or password!"
+msgstr ""
+

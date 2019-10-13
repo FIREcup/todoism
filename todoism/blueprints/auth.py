@@ -1,6 +1,7 @@
 from faker import Faker
 from flask import render_template, redirect, url_for, Blueprint, request, jsonify
 from flask_login import login_user, logout_user, login_required, current_user
+from flask_babel import _
 
 from ..extensions import db
 from ..models import User, Item
@@ -11,6 +12,7 @@ fake = Faker()
 
 @auth_bp.route('/register')
 def register():
+    print('dddddddddddd')
     username = fake.user_name()
     while User.query.filter_by(username=username).first() is not None:
         username = fake.user_name()
