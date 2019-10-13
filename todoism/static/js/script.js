@@ -233,7 +233,7 @@ $(document).ready(function () {
         $input.focus();
         $.ajax({
             type: 'DELETE',
-            url: clear_item_url;
+            url: clear_item_url,
             success: function (data) {
                 $items.filter(function () {
                     return $(this).data('done');
