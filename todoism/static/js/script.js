@@ -217,7 +217,7 @@ $(document).ready(function () {
         $input.focus();
         $items.show();
         $items.filter(function () {
-            return $(this).data('done');
+            return !$(this).data('done');
         }).hide();
     });
 
