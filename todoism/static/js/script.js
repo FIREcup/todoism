@@ -143,7 +143,7 @@ $(document).ready(function () {
             success: function (data) {
                 $('#username-input').val(data.username);
                 $('#password-input').val(data.password);
-                M.toast({html: data.message});
+                M.toast({html: data.message})
             }
         });
     }
