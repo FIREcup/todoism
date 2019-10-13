@@ -63,4 +63,6 @@ def toggle_item(item_id):
         return jsonify(message=_('Permission denied.')), 403
 
     item.done = not item.done
+    db.session.commit()
+    return jsonify(message=_('Item toggled.'))
 
