@@ -228,7 +228,7 @@ $(document).ready(function () {
 
     $(document).on('click', '#clear-btn', function () {
         var $input = $('#item-input');
-        var $(items) = $('.item')
+        var $(items) = $('.item');
 
         $input.focus();
         $.ajax({
