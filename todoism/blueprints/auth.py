@@ -33,7 +33,6 @@ def register():
 
 @auth_bp.route('/login', methods=['GET', 'POST'])
 def login():
-    print('MMMMMMMMMMMMMMMMMMMMM')
     if current_user.is_authenticated:
         return redirect(url_for('todo.app'))
 
@@ -41,6 +40,7 @@ def login():
         data = request.get_json()
         username = data['username']
         password = data['password']
+        print('MMMMMMMMMMMMMMMMMMMMMMM')
 
         user = User.query.filter_by(username=username).first()
 
