@@ -2,7 +2,7 @@ $(document).ready(function () {
     var ENTER_KEY = 13;
     var ESC_KEY = 27;
 
-    $(document).ajaxError(fucntion (event, request) {
+    $(document).ajaxError(function (event, request) {
         var message = null;
 
         if (request.responseJSON && request.responseJSON.hashOwnProperty('message')) {
