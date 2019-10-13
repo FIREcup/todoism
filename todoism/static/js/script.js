@@ -89,7 +89,7 @@ $(document).ready(function () {
         $('.modal').modal();
         $('.tooltipped').tooltip();
         $('.dropdown-trigger').dropdown({
-            constrain-width: false,
+            constrainWidth: false,
             coverTrigger: false
             }
         );
