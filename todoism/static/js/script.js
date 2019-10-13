@@ -139,7 +139,7 @@ $(document).ready(function () {
     function register() {
         $.ajax ({
             type: 'GET',
-            url: register_url;
+            url: register_url,
             success: function (data) {
                 $('#username-input').val(data.username);
                 $('#password-input').val(data.password);
