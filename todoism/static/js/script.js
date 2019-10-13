@@ -164,7 +164,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: 'POST',
-            url: login_user,
+            url: login_url,
             data: JSON.stringify(data),
             contentType: 'application/json;charset:utf-8',
             success: function (data) {
