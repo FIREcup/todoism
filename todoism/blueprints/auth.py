@@ -36,11 +36,10 @@ def login():
     if current_user.is_authenticated:
         return redirect(url_for('todo.app'))
 
-    if request.method == 'post':
+    if request.method == 'POST':
         data = request.get_json()
         username = data['username']
         password = data['password']
-        print('MMMMMMMMMMMMMMMMMMMMMMM')
 
         user = User.query.filter_by(username=username).first()
 

@@ -1,4 +1,4 @@
-from flask import render_template, request, Blueprint, jsonify
+from flask import render_template, request, Blueprint, jsonify, abort
 from flask_login import current_user, login_required
 from flask_babel import _
 
@@ -38,3 +38,18 @@ def clear_items():
         db.session.delete(item)
     db.session.commit()
     return jsonify(message='All clear')
+
+
+@todo_bp.route('/item/<int:item_id>/edit', methods=['PUT'])
+@login_required
+def edit_item(item_id):
+    item = Item.query.get_or_404(item_id)
+    if current_user != item.author:
+        return jsonify(message=_('Permission denied.')), 403
+
+    data = request.get_json()
+    if data is None or data['body'].strip() == '':
+        return jsonify(message=_('Invalid item body')), 400
+    item.body = data['body']
+    db.session.commit()
+    return jsonify(message=_('Item updated.'))
