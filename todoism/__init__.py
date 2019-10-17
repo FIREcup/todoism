@@ -8,6 +8,7 @@ from flask_login import current_user
 from .blueprints.auth import auth_bp
 from .blueprints.home import home_bp
 from .blueprints.todo import todo_bp
+from todoism.apis.v1 import api_v1
 from .extensions import db, login_manager, csrf, babel
 from .models import User, Item
 from .settings import config
@@ -32,6 +33,7 @@ def register_extensions(app):
     db.init_app(app)
     login_manager.init_app(app)
     csrf.init_app(app)
+    csrf.exempt(api_v1)
     babel.init_app(app)
 
 
@@ -39,6 +41,7 @@ def register_blueprints(app):
     app.register_blueprint(auth_bp)
     app.register_blueprint(home_bp)
     app.register_blueprint(todo_bp)
+    app.register_blueprint(api_v1, url_prefix='/api/v1')
 
 
 def register_template_context(app):
