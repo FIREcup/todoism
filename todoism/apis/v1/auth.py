@@ -30,12 +30,12 @@ def validate_token(token):
 def get_token():
     if 'Authorization' in request.headers:
         try:
-            token_type, token = request.headers['Authorization'].split(None, 1)
+            token, token_type = request.headers['Authorization'].split(None, 1)
         except ValueError:
             token_type = token = None
     else:
         token_type = token = None
-        return token_type, token
+    return token_type, token
 
 
 def auth_required(f):

@@ -5,7 +5,7 @@ from todoism.apis.v1 import api_v1
 from todoism.extensions import db
 from todoism.models import User, Item
 from todoism.apis.v1.errors import ValidationError, api_abort
-from .auth import get_token, generate_token, auth_required
+from .auth import generate_token, auth_required
 from .schemas import item_schema, user_schema, items_schema
 
 
@@ -19,6 +19,7 @@ def get_item_body():
 
 class IndexAPI(MethodView):
     def get(self):
+        print('hahaha')
         return jsonify({
             'api_version': '1.0',
             'api_base_url': 'http://example.com/api/v1',
@@ -36,12 +37,14 @@ class AuthTokenAPI(MethodView):
         grant_type = request.form.get('grant_type')
         username = request.form.get('username')
         password = request.form.get('password')
+        print('username: {}, password: {}, grant_type: {}'.format(username, password, grant_type))
 
         if grant_type is None or grant_type.lower() != 'password':
             return api_abort(code=400,message='Either the username or password is invalid.')
 
         user = User.query.filter_by(username=username).first()
-        if user is None or user.validate_password(password):
+        print('user: {}'.format(user))
+        if user is None or not user.validate_password(password):
             return api_abort(code=400, message='Either the username or password is invalid.')
 
         token, expiration = generate_token(user)

@@ -19,8 +19,8 @@ def user_schema(user):
 def item_schema(item):
     return {
         'id': item.id,
-        'self': url_for('.item', item_id=item.id, _external=True)
-        'kink': 'Item',
+        'self': url_for('.item', item_id=item.id, _external=True),
+        'kind': 'Item',
         'body': item.body,
         'done': item.done,
         'author': {
