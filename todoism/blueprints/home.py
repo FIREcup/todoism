@@ -19,7 +19,6 @@ def intro():
 
 @home_bp.route('/set-locale/<locale>')
 def set_locale(locale):
-    print('ddddddddddddddddd')
     if locale not in current_app.config['TODOISM_LOCALES']:
         return jsonify(message=_('Invalid locale.')), 404
 
