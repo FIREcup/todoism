@@ -19,7 +19,6 @@ def get_item_body():
 
 class IndexAPI(MethodView):
     def get(self):
-        print('hahaha')
         return jsonify({
             'api_version': '1.0',
             'api_base_url': 'http://example.com/api/v1',
