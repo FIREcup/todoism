@@ -39,7 +39,7 @@ class AuthTokenAPI(MethodView):
         print('username: {}, password: {}, grant_type: {}'.format(username, password, grant_type))
 
         if grant_type is None or grant_type.lower() != 'password':
-            return api_abort(code=400,message='Either the username or password is invalid.')
+            return api_abort(code=400, message='Either the username or password is invalid.')
 
         user = User.query.filter_by(username=username).first()
         print('user: {}'.format(user))

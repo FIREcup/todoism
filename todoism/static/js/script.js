@@ -179,6 +179,42 @@ $(document).ready(function () {
         });
     }
 
+    $(document).on('click', '.done-btn', function () {
+         var $input = $('#item-input');
+
+         $input.focus();
+         var $item = $(this).parent().parent();
+         var $this = $(this);
+
+         if ($item.data('done')) {
+             $.ajax({
+                 type: 'PATCH',
+                 url: $this.data('href'),
+                 success: function (data) {
+                     $this.next().removeClass('inactive-item');
+                     $this.next().addClass('active-item');
+                     $this.find('i').text('check_box_outline_blank');
+                     $item.data('done', false);
+                     M.toast({html: data.message});
+                     refresh_count();
+                 }
+             })
+         } else {
+             $.ajax({
+                 type: 'PATCH',
+                 url: $this.data('href'),
+                 success: function (data) {
+                     $this.next().removeClass('active-item');
+                     $this.next().addClass('inactive-item');
+                     $this.find('i').text('check-box');
+                     $item.data('done', true);
+                     M.toast({html: data.message});
+                     refresh_count();
+                 }
+             })
+         }
+    })
+
     $('.login-input').on('keyup', function (e) {
         if (e.which === ENTER_KEY) {
             login_user();
