@@ -55,7 +55,7 @@ def edit_item(item_id):
     return jsonify(message=_('Item updated.'))
 
 
-@todo_bp.route('/item/<int:item_id>/toggle', methods=['POST'])
+@todo_bp.route('/item/<int:item_id>/toggle', methods=['POST', 'PATCH'])
 @login_required
 def toggle_item(item_id):
     item = Item.query.get_or_404(item_id)
