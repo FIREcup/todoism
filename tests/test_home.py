@@ -12,7 +12,7 @@ class HomeTestCase(unittest.TestCase):
         self.app_context = app.test_request_context()
         self.app_context.push()
         db.create_all()
-        slef.client = app.test_client()
+        self.client = app.test_client()
 
     def tearDown(self):
         db.drop_all()

@@ -13,7 +13,7 @@ class AuthTestCase(unittest.TestCase):
         self.app_context = app.test_request_context()
         self.app_context.push()
         db.create_all()
-        slef.client = app.test_client()
+        self.client = app.test_client()
 
         user = User(username='yang')
         user.set_password('123')

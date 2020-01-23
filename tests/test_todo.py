@@ -6,7 +6,7 @@ from todoism import create_app, db
 from todoism.models import User, Item
 
 
-class ToDoTestCase(unittst.TestCase):
+class ToDoTestCase(unittest.TestCase):
 
     def setUp(self):
         app = create_app('testing')
